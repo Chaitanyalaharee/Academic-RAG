@@ -1,0 +1,157 @@
+/* ═══════════════════════════════════════════════════════════
+   AcademicRAG — Animations
+═══════════════════════════════════════════════════════════ */
+
+/* ─── Toast in ───────────────────────────────────────────── */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toast-out {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(40px); }
+}
+
+/* ─── Fade in up ─────────────────────────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-fade-up {
+  animation: fade-in-up 0.4s ease both;
+}
+
+.anim-delay-1 { animation-delay: 0.1s; }
+.anim-delay-2 { animation-delay: 0.2s; }
+.anim-delay-3 { animation-delay: 0.3s; }
+
+/* ─── Pulse ──────────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+.pulse { animation: pulse-glow 1.5s ease-in-out infinite; }
+
+/* ─── Spin ───────────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ─── Gradient shift ─────────────────────────────────────── */
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.anim-gradient {
+  background: linear-gradient(270deg, var(--color-minilm), var(--color-e5), var(--color-bge));
+  background-size: 400% 400%;
+  animation: gradient-shift 6s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Page transition ────────────────────────────────────── */
+@keyframes page-in {
+  from { opacity: 0; transform: translateX(12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.page.active {
+  animation: page-in 0.3s ease both;
+}
+
+/* ─── Floating particles (CSS-only) ─────────────────────── */
+.particles-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: float-particle linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes float-particle {
+  0%   { transform: translateY(100%) translateX(0); opacity: 0; }
+  10%  { opacity: 0.4; }
+  90%  { opacity: 0.4; }
+  100% { transform: translateY(-20px) translateX(20px); opacity: 0; }
+}
+
+/* ─── Animated border on hover ───────────────────────────── */
+.border-glow-minilm:hover { box-shadow: 0 0 16px rgba(0,212,255,0.3);  border-color: var(--color-minilm) !important; }
+.border-glow-e5:hover     { box-shadow: 0 0 16px rgba(168,85,247,0.3); border-color: var(--color-e5) !important; }
+.border-glow-bge:hover    { box-shadow: 0 0 16px rgba(245,158,11,0.3); border-color: var(--color-bge) !important; }
+
+/* ─── Loading overlay ────────────────────────────────────── */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,15,30,0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  z-index: 10;
+}
+
+/* ─── Score bar animation ────────────────────────────────── */
+@keyframes bar-grow {
+  from { width: 0; }
+}
+
+.progress-bar { animation: bar-grow 0.6s cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+/* ─── Race bar pulse when running ────────────────────────── */
+@keyframes race-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+
+.race-running .race-bar-fill {
+  animation: race-pulse 0.8s ease infinite;
+}
+
+/* ─── Number count-up (JS triggers this class) ───────────── */
+.count-up { transition: all 0.5s ease; }
+
+/* ─── Slide down ─────────────────────────────────────────── */
+@keyframes slide-down {
+  from { opacity: 0; max-height: 0; }
+  to   { opacity: 1; max-height: 2000px; }
+}
+
+.slide-down-in { animation: slide-down 0.4s ease both; }
+
+/* ─── Responsive adjustments ─────────────────────────────── */
+@media (max-width: 768px) {
+  .page { padding: 16px; }
+  .page-title { font-size: 1.4rem; }
+  #sidebar { width: var(--sidebar-collapsed); }
+  #main-content { margin-left: var(--sidebar-collapsed); }
+  .page-header { padding: 24px 20px; }
+}

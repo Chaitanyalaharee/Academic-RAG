@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What is the attention mechanism in transformer models?",
+    "answer": "The attention mechanism allows a model to focus on different parts of the input sequence when producing each output token. It computes a weighted sum of value vectors, where weights are determined by the compatibility between a query vector and key vectors."
+  },
+  {
+    "question": "What are the main limitations of BERT?",
+    "answer": "BERT is limited by its 512 token maximum input length, high computational cost, and inability to generate text. It also requires significant memory and is slow to fine-tune without powerful hardware."
+  },
+  {
+    "question": "How does retrieval-augmented generation work?",
+    "answer": "Retrieval-Augmented Generation (RAG) combines a retrieval system that finds relevant documents with a language model that generates answers based on the retrieved context. The retrieval step uses dense embeddings to find semantically similar documents."
+  }
+]

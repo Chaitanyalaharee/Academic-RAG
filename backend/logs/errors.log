@@ -1,0 +1,183 @@
+[2026-05-01 19:00:50] [ERROR] [pdf_parser.py:113] Skipping '472_unit2.pdf' due to parse error: PDF appears to be empty
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\pipeline\pdf_parser.py", line 109, in parse_all_pdfs
+    pages = parse_pdf(pdf_path)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\pipeline\pdf_parser.py", line 74, in parse_pdf
+    raise ValueError("PDF appears to be empty")
+ValueError: PDF appears to be empty
+
+[2026-05-01 19:07:42] [ERROR] [groq_service.py:125] Unexpected Groq error: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\services\groq_service.py", line 81, in generate_answer
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\resources\chat\completions.py", line 289, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1225, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 920, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1018, in _request
+    raise self._make_status_error_from_response(err.response) from None
+groq.BadRequestError: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+
+[2026-05-01 19:07:42] [ERROR] [query.py:231] Query failed for model 'minilm': Groq request failed: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\services\groq_service.py", line 81, in generate_answer
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\resources\chat\completions.py", line 289, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1225, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 920, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1018, in _request
+    raise self._make_status_error_from_response(err.response) from None
+groq.BadRequestError: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\routes\query.py", line 186, in query_endpoint
+    answer, llm_latency = await asyncio.get_event_loop().run_in_executor(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\services\groq_service.py", line 128, in generate_answer
+    raise RuntimeError(f"Groq request failed: {e}") from e
+RuntimeError: Groq request failed: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+
+[2026-05-01 19:07:43] [ERROR] [groq_service.py:125] Unexpected Groq error: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\services\groq_service.py", line 81, in generate_answer
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\resources\chat\completions.py", line 289, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1225, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 920, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1018, in _request
+    raise self._make_status_error_from_response(err.response) from None
+groq.BadRequestError: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+
+[2026-05-01 19:07:43] [ERROR] [query.py:231] Query failed for model 'e5': Groq request failed: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\services\groq_service.py", line 81, in generate_answer
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\resources\chat\completions.py", line 289, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1225, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 920, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1018, in _request
+    raise self._make_status_error_from_response(err.response) from None
+groq.BadRequestError: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\routes\query.py", line 186, in query_endpoint
+    answer, llm_latency = await asyncio.get_event_loop().run_in_executor(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\services\groq_service.py", line 128, in generate_answer
+    raise RuntimeError(f"Groq request failed: {e}") from e
+RuntimeError: Groq request failed: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+
+[2026-05-01 19:07:44] [ERROR] [groq_service.py:125] Unexpected Groq error: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\services\groq_service.py", line 81, in generate_answer
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\resources\chat\completions.py", line 289, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1225, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 920, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1018, in _request
+    raise self._make_status_error_from_response(err.response) from None
+groq.BadRequestError: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+
+[2026-05-01 19:07:44] [ERROR] [query.py:231] Query failed for model 'bge': Groq request failed: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\services\groq_service.py", line 81, in generate_answer
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\resources\chat\completions.py", line 289, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1225, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 920, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\venv\Lib\site-packages\groq\_base_client.py", line 1018, in _request
+    raise self._make_status_error_from_response(err.response) from None
+groq.BadRequestError: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\routes\query.py", line 186, in query_endpoint
+    answer, llm_latency = await asyncio.get_event_loop().run_in_executor(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\services\groq_service.py", line 128, in generate_answer
+    raise RuntimeError(f"Groq request failed: {e}") from e
+RuntimeError: Groq request failed: Error code: 400 - {'error': {'message': 'The model `llama3-8b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+
+[2026-05-01 19:18:43] [ERROR] [pdf_parser.py:113] Skipping '472_unit2.pdf' due to parse error: PDF appears to be empty
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\pipeline\pdf_parser.py", line 109, in parse_all_pdfs
+    pages = parse_pdf(pdf_path)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\pipeline\pdf_parser.py", line 74, in parse_pdf
+    raise ValueError("PDF appears to be empty")
+ValueError: PDF appears to be empty
+
+[2026-05-01 19:19:54] [ERROR] [pdf_parser.py:113] Skipping '472_unit2.pdf' due to parse error: PDF appears to be empty
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\pipeline\pdf_parser.py", line 109, in parse_all_pdfs
+    pages = parse_pdf(pdf_path)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\pipeline\pdf_parser.py", line 74, in parse_pdf
+    raise ValueError("PDF appears to be empty")
+ValueError: PDF appears to be empty
+
+[2026-05-01 20:27:26] [ERROR] [pdf_parser.py:113] Skipping '472_unit2.pdf' due to parse error: PDF appears to be empty
+Traceback (most recent call last):
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\pipeline\pdf_parser.py", line 109, in parse_all_pdfs
+    pages = parse_pdf(pdf_path)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Downloads\AcademicRAG\project\backend\pipeline\pdf_parser.py", line 74, in parse_pdf
+    raise ValueError("PDF appears to be empty")
+ValueError: PDF appears to be empty
+
